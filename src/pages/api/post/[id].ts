@@ -11,7 +11,7 @@ export default async (req:NextApiRequest,res:NextApiResponse) => {
     switch (method) {
         case "GET":
             try {
-                const text = 'SELECT * FROM usuarios WHERE id_usuarios = $1' 
+                const text = 'SELECT * FROM post WHERE id_post = $1' 
                 const values = [query.nickname,query.password]
                 const result = await conn.query(text,values)
                 
@@ -19,7 +19,7 @@ export default async (req:NextApiRequest,res:NextApiResponse) => {
 
                 if (result.rows.length ===0) 
                 {
-                    return res.status(404).json({message:"User no found"})
+                    return res.status(404).json({message:"Post no found"})
                 }
 
                 return res.status(200).json(result.rows[0])
