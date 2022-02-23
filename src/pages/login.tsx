@@ -5,11 +5,14 @@ import Link from "next/link";
 import { getCookie, setCookies } from 'cookies-next';
 import { ChangeEvent, FormEvent, useState } from "react";
 import { usuarios } from "src/interfaces/usuarios";
+import { useRouter } from "next/router";
 
 
 
 
 function Login() {
+
+  const router = useRouter()
 
   const [user,setUsuarios] = useState({
     nickname:'',
@@ -42,7 +45,7 @@ function Login() {
               setCookies("log","V")
 
               console.log(getCookie(user.nickname))
-
+              router.push("/HomePage")
 
           } catch (error) {
             console.log(error)

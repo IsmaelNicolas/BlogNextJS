@@ -14,7 +14,7 @@ function HomepageHeader() {
                         </Link>
                     </li>
                     <li className='nav__link'>
-                        <a href='#news-container'>Noticias</a>
+                        <Link href='/HomePage#news-container'>Noticias</Link>
                     </li>
                     <li className='nav__link'>
                         <Link href="/UserProfile" passHref>
