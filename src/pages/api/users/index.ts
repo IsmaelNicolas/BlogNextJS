@@ -16,8 +16,7 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
                 return  res.status(500).json({error: error.message});
             }
             
-            case "POST":
-                
+        case "POST":    
             try {
                 const {password,nickname,email} = body;
                 if (!email)
