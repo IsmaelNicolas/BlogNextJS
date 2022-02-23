@@ -1,33 +1,34 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import HomepageHeader from "./components/homepage/HomepageHeader";
 import HomepageFooter from "./components/homepage/HomepageFooter";
-import Posts from "./components/user/Posts";
+import PostsUser from "./components/user/PostsUser";
+import { Posts } from "../../src/interfaces/Posts";
 
 import userLogo from "src/utils/logos/pngwing.com.png"
 import imgBkg from "src/utils/images/user-bkg.jpg"
+import { GetServerSideProps } from "next";
 
-// function EditUser({show}: ShowDisplay) {
-//     // var aux = document.getElementsByClassName('editContainer');
-//     return (
-//         <div className='edit-container' style={{ display: show }}>
-//             <label>Nombre de ususario</label>
-//             <input type={'text'}></input>
-//             {/* <Image alt='' src=''/> */}
-//             <label>Foto de perfil</label>
-//             <button>Guardar</button>
-//             {/* <button onClick={()=>aux[0].style.display='none'}>Cancelar</button> */}
-//         </div>
-//     );
-// }
+interface Props {
+    posts: Posts[];
+}
 
-function User() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const res = await fetch("http://localhost:3000/api/post");
+    const posts = await res.json();
+    console.log(posts);
+    return {
+        props: { posts },
+    };
+};
+
+function User({posts}: Props) {
     const [show, setShow] = useState('none');
     return (
         <div>
             <HomepageHeader />
-            <Image id='img-bkg' src={imgBkg} alt=''/>
+            <Image id='img-bkg' src={imgBkg} alt='' />
             <div id='user__container'>
                 <div id='user__data'>
                     <Image id='user__img' src={userLogo} alt='' />
@@ -40,7 +41,7 @@ function User() {
                     <label className='user__lbl'>Comentarios: #</label>
                     <label className='user__lbl'>Preguntas: #</label>
                     <h3 id='user__h3'>Publicaciones activas</h3>
-                    <Posts />
+                    <PostsUser posts={posts}/>
                     <button className='user__btn'>ver más</button>
                 </div>
             </div>
