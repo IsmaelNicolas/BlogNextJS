@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import {conn} from '../../../utils/database' 
+import { useRouter } from "next/router";
+import {conn} from 'src/utils/database' 
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req:NextApiRequest,res:NextApiResponse) => {
@@ -11,10 +12,10 @@ export default async (req:NextApiRequest,res:NextApiResponse) => {
     switch (method) {
         case "GET":
             try {
+               
                 const text = 'SELECT * FROM usuarios WHERE id_usuarios = $1' 
-                const values = [query.nickname,query.password]
+                const values = [query.id_usuarios]
                 const result = await conn.query(text,values)
-                
                 console.log(result)
 
                 if (result.rows.length ===0) 
