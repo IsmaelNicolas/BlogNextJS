@@ -11,7 +11,7 @@ function Presentation() {
             <Image id="presentation-img" src={portada} alt=""/>
             <div id="presentation__item">
                 <Image id="presentation-logo" src={logo} alt=""/>
-                <Link href="/"><a className="presentation__link">Saber Más</a></Link>
+                <Link href="/login"><a className="presentation__link">Saber Más</a></Link>
                 <Link href="/register"><a className="presentation__link">Regístrarse</a></Link>
             </div>
         </div>
