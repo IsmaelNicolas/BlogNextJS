@@ -333,10 +333,32 @@ p{
   width: 300px;
   height: 400px;
   margin: 3vw;
-  border: 1px solid var(--primario-l);
+  background-color: var(--background-l);
+  border: 2px solid var(--primario-l);
   border-radius: 20px;
+  box-shadow: 0 1rem .8rem rgba(0, 0, 0, .1);
 }
 
-.post__title, .post__date, .post__content{
+.post-container:hover{
+  color: var(--primario-l);
+  transition: all .25s;
+  cursor: pointer;
+  border: 2px solid var(--terceario);
+}
+
+.post__content{
+  text-align: justify;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 2vw;
+}
+
+.post__title{
   text-align: center;
+  margin-top: 1vw;
+}
+
+.post__date{
+  text-align: center;
+  margin-top: .1vw;
 }

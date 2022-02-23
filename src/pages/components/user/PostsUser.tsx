@@ -15,22 +15,22 @@ export const PostsUser = ({ posts = [] }: Props) => {
             <div className="publication">
             <Image id="publication__img" src={img1} alt=""/>
             <h3 id="publication__h3">{posts[0].titulo}</h3>
-            <p id="publication__description">{posts[0].contenido}</p>
+            <p id="publication__description">{new Date(posts[0].fecha_publicacion).toLocaleDateString()}</p>
         </div>
         <div className="publication">
             <Image id="publication__img" src={img1} alt=""/>
             <h3 id="publication__h3">{posts[1].titulo}</h3>
-            <p id="publication__description">{posts[1].contenido}</p>
+            <p id="publication__description">{new Date(posts[1].fecha_publicacion).toLocaleDateString()}</p>
         </div>
         <div className="publication">
             <Image id="publication__img" src={img1} alt=""/>
             <h3 id="publication__h3">{posts[2].titulo}</h3>
-            <p id="publication__description">{posts[2].contenido}</p>
+            <p id="publication__description">{new Date(posts[2].fecha_publicacion).toLocaleDateString()}</p>
         </div>
         <div className="publication">
             <Image id="publication__img" src={img1} alt=""/>
             <h3 id="publication__h3">{posts[3].titulo}</h3>
-            <p id="publication__description">{posts[3].contenido}</p>
+            <p id="publication__description">{new Date(posts[3].fecha_publicacion).toLocaleDateString()}</p>
         </div>
         </div>
     );
