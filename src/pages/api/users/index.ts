@@ -33,7 +33,7 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
                     return res.status(200).json(respose.rows[0])
                 }
                 else{
-                    const query = 'INSERT INTO usuarios (nickname,email,password) VALUES (MD5($1),$2,$3) RETURNING *'
+                    const query = 'INSERT INTO usuarios (nickname,email,password) VALUES ($1,$2,MD5($3)) RETURNING *'
                     const values =[nickname,email,password]
                     
                     const respose = await conn.query(query,values)

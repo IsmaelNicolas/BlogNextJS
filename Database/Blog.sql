@@ -119,7 +119,7 @@ create unique index ETIQUETA_PK on ETIQUETA (
 /*==============================================================*/
 create table if not exists POST (
    ID_POST              UUID DEFAULT gen_random_uuid(),
-   ID_USUARIOS          VARCHAR(40),
+   ID_USUARIOS          UUID DEFAULT gen_random_uuid(),
    TITULO               VARCHAR(30)          not null,
    FECHA_PUBLICACION    DATE                 default CURRENT_DATE,
    CONTENIDO            TEXT                 not null,
