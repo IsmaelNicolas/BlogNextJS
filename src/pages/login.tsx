@@ -18,14 +18,6 @@ function Login() {
   return (
     <form onSubmit={handleSubmint}>
         <div className="LoginS-bodylog">
-        <input type="radio" name="LoginS-dark-ligth" id="LoginS-d-mode" defaultChecked />
-        <label htmlFor="LoginS-d-mode">
-          <Image src={sun} id="LoginS-img" alt=""/>
-        </label>
-        <input type="radio" name="LoginS-dark-ligth" id="LoginS-l-mode" />
-        <label htmlFor="LoginS-l-mode">
-          <Image src={moon} id="LoginS-img" alt=""/>
-        </label>
         <div className="LoginS-container">
           <div className="LoginS-boxLog">
             <h1>Inicia Sesion</h1>
@@ -56,3 +48,12 @@ function Login() {
 }
 
 export default Login;
+
+        // <input type="radio" name="LoginS-dark-ligth" id="LoginS-d-mode" defaultChecked />
+        // <label htmlFor="LoginS-d-mode">
+        //   <Image src={sun} id="LoginS-img" alt=""/>
+        // </label>
+        // <input type="radio" name="LoginS-dark-ligth" id="LoginS-l-mode" />
+        // <label htmlFor="LoginS-l-mode">
+        //   <Image src={moon} id="LoginS-img" alt=""/>
+        // </label>
