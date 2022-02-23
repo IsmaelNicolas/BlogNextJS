@@ -1,18 +1,32 @@
-import React from "react";
+import { GetServerSideProps } from "next";
+import { Posts } from "../../src/interfaces/Posts";
+import HomepageHeader from '../pages/components/homepage/HomepageHeader';
+import { CommunityPosts } from "../pages/components/comunity/ComunnityPosts";
 
-import HomepageHeader from './components/homepage/HomepageHeader';
-import HomepageFooter from './components/homepage/HomepageFooter';
-
-function Comunity(){
-    return(
-        <div>
-            <HomepageHeader />
-            <div className="comunity__container">
-
-            </div>
-            <HomepageFooter />
-        </div>
-    );
+interface Props {
+  posts: Posts[];
 }
 
-export default Comunity;
+export default function community({ posts }: Props) {
+    return(
+        <>
+        <HomepageHeader />
+        {posts.length === 0 ? (
+            <h1>no post</h1>
+        ) : (
+            <CommunityPosts posts={posts} />
+        )}
+        </>
+    )
+}
+  
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const res = await fetch("http://localhost:3000/api/post");
+    const posts = await res.json();
+
+    console.log(posts);
+
+    return {
+      props: { posts: posts, },
+    };
+};
