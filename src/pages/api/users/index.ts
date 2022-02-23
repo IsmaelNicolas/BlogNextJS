@@ -26,7 +26,11 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
                     
                     const respose = await conn.query(query,values)
                     console.log(respose.rows[0])
-                    return res.status(200).json(respose.rows)
+                    if(respose.rows.length == 0){
+                        
+                        return res.status(400).json({error:"Usuario no encontrado"})
+                    }
+                    return res.status(200).json(respose.rows[0])
                 }
                 else{
                     const query = 'INSERT INTO usuarios (nickname,email,password) VALUES (MD5($1),$2,$3) RETURNING *'
