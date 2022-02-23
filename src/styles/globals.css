@@ -51,7 +51,11 @@ a {
   text-decoration: none;
 }
 
-.nav__logo {
+a:hover{
+  color: var(--primario-d);
+}
+
+.nav__logo { 
   width: 5vh;
   height: 5vh;
 }
@@ -106,6 +110,7 @@ header label input[type="checkbox"]:checked ~ .check{
 }
 
 #presentation{
+  width: 100%;
   position: relative;
 }
 
@@ -240,7 +245,7 @@ p{
 
 #user__data {
   width: 100%;
-  margin: -15vh 0vh 0vh 0vh;
+  margin: -25vh 0vh 0vh 0vh;
   text-align: center;
   grid-area: item1;
 }
