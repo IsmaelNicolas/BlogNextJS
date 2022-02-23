@@ -18,7 +18,7 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
             
         case "POST":    
             try {
-                const {password,nickname,email} = body;
+                const {nickname,email,password} = body;
                 if (!email)
                 {
                     const query = 'SELECT * FROM usuarios WHERE nickname = $1 AND password = MD5($2)'
@@ -29,8 +29,8 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
                     return res.status(200).json(respose.rows)
                 }
                 else{
-                    const query = 'INSERT INTO usuarios (password,email,nickname) VALUES (MD5($1),$2,$3) RETURNING *'
-                    const values =[password,email,nickname]
+                    const query = 'INSERT INTO usuarios (nickname,email,password) VALUES (MD5($1),$2,$3) RETURNING *'
+                    const values =[nickname,email,password]
                     
                     const respose = await conn.query(query,values)
                     
