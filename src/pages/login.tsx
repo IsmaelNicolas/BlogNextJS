@@ -5,11 +5,14 @@ import Link from "next/link";
 import { getCookie, setCookies } from 'cookies-next';
 import { ChangeEvent, FormEvent, useState } from "react";
 import { usuarios } from "src/interfaces/usuarios";
+import { useRouter } from "next/router";
 
 
 
 
 function Login() {
+
+  const router = useRouter()
 
   const [user,setUsuarios] = useState({
     nickname:'',
@@ -35,14 +38,19 @@ function Login() {
               const log = await loginUser(user)
 
               if(log.status == 400){
+                  setCookies("user","----")
+                  console.log(getCookie("user"))
+          
                   throw "Usuario no encontrado"
               }
 
-              setCookies(user.nickname,user.password)
+
+              setCookies("user",user.nickname)
+              setCookies("password",user.nickname)
               setCookies("log","V")
 
-              console.log(getCookie(user.nickname))
-
+              console.log(getCookie("user"))
+              router.push("/HomePage")
 
           } catch (error) {
             console.log(error)
