@@ -121,7 +121,7 @@ create table if not exists POST (
    ID_POST              UUID DEFAULT gen_random_uuid(),
    ID_USUARIOS          VARCHAR(40),
    TITULO               VARCHAR(30)          not null,
-   FECHA_PUBLICACION    DATE                 null,
+   FECHA_PUBLICACION    DATE                 default CURRENT_DATE,
    CONTENIDO            TEXT                 not null,
    ESTATUS              CHAR(8)              not null,
    constraint PK_POST primary key (ID_POST)
@@ -177,10 +177,10 @@ create  index TIENE2_FK on POST_ETIQUETA (
 /*==============================================================*/
 create table if not exists USUARIOS (
    ID_USUARIOS          UUID DEFAULT gen_random_uuid(),
-   LOGIN                VARCHAR(30)          null,
-   PASSWORD             VARCHAR(30)          not null,
-   EMAIL                VARCHAR(30)          not null,
-   NICKNAME             VARCHAR(30)          not null,
+   LOGIN                VARCHAR(40)          null,
+   PASSWORD             VARCHAR(50)          not null,
+   EMAIL                VARCHAR(50)          not null,
+   NICKNAME             VARCHAR(50)          not null,
    constraint PK_USUARIOS primary key (ID_USUARIOS)
 );
 
