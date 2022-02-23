@@ -19,11 +19,11 @@ export default async function users(req:NextApiRequest,res:NextApiResponse) {
             case "POST":
                 
             try {
-                const {id_usuarios,titulo,fecha_publicacion,contenido,estatus} = body;
+                const {nickname,titulo,contenido,estatus} = body;
                 
                 //const query = 'INSERT INTO usuarios (password,email,nickname) VALUES (MD5($1),$2,$3) RETURNING *'
-                const query = 'INSERT INTO post (id_usuarios,titulo,fecha_publicacion,contenido,estatus) VALUES ($1,$2,$3,$4,$5) RETURNING *'
-                const values =[id_usuarios,titulo,fecha_publicacion,contenido,estatus]
+                const query = 'INSERT INTO post (id_usuarios,titulo,contenido,estatus) VALUES ((SELECT id_usuarios FROM usuarios WHERE nickname=$1),$2,$3,$4) RETURNING *'
+                const values =[nickname,titulo,contenido,estatus]
                 
                 const respose = await conn.query(query,values)
                 
