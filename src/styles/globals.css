@@ -319,3 +319,24 @@ p{
   z-index: 2;
   border: 1px solid #000000;
 }
+
+/* estilos del post seccion comunity*/
+.post-grid{
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-container{
+  width: 300px;
+  height: 400px;
+  margin: 3vw;
+  border: 1px solid var(--primario-l);
+  border-radius: 20px;
+}
+
+.post__title, .post__date, .post__content{
+  text-align: center;
+}
