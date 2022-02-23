@@ -127,7 +127,7 @@ header label input[type="checkbox"]:checked ~ .check{
 }
 
 .presentation__link{
-  margin: 0vh 0.5vw 0vh 0.5vw;
+  margin: 0vh 0.4vw 0vh 0.4vw;
 	padding: 0.4rem 1.2rem 0.4rem 1.2rem;
   display: inline-block;
 	border-radius: 5rem;
