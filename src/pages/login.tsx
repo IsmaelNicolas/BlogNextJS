@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import sun from "src/utils/images/sun.png";
 import moon from "src/utils/images/half-moon.png";
@@ -9,6 +9,10 @@ const handleSubmint = (e:FormEvent)=>{
       e.preventDefault();
       
 }
+const handleChange = (e:ChangeEvent) =>{
+
+}
+
 
 function Login() {
   return (
@@ -39,7 +43,7 @@ function Login() {
             </p>
           </div>
           <div className="LoginS-botones">
-            <input className="LoginS-btn" type="submit" defaultValue="Iniciar Sesion" />
+            <input className="LoginS-btn" type="submit" defaultValue="Iniciar Sesion" onChange={handleChange}/>
             <button className="LoginS-btn-google" id="LoginS-btn_google">
               Inicia con Google
             </button>
